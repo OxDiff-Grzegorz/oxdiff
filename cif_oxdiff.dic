@@ -1,0 +1,96 @@
+#\#CIF_2.0
+# SPDX-License-Identifier: CC-BY-4.0
+##############################################################################
+#                                                                            #
+#               CIF - _oxdiff Rigaku Oxford Diffraction		                 #
+#                                                                            #
+# Names and definitions of CIF data items used by CrysAlisPro				 #
+#                                                                            #
+##############################################################################
+
+data_CIF_ED
+
+    _dictionary.title            CIF_OXDIFF
+    _dictionary.class            Instance
+    _dictionary.version          1.0.1-dev
+    _dictionary.date             2026-11-09
+    _dictionary.uri
+         
+    _dictionary.ddl_conformance  4.2.0
+    _dictionary.licensing_SPDX   CC-BY-4.0
+    _dictionary.namespace        CifCore
+    _description.text
+;
+    This dictionary defines data items used by CrysAlisPro to specify the aspects of
+    experimental data processing and non-standard meta-data transfer.
+;
+
+    loop_
+      _dictionary_author.id
+      _dictionary_author.name
+      _dictionary_author.email
+         1      'Prochniak, Grzegorz'   grzegorz.prochniak@rigaku.com
+         
+
+save_CIF_OXDIFF_HEAD
+
+    _definition.id               CIF_OXDIFF_HEAD
+    _definition.scope            Category
+    _definition.class            Head
+    _definition.update           2026-11-09
+    _description.text
+;
+     This category is the Head category for an extension dictionary used by CrysAlisPro.
+;
+    _name.category_id            CIF_OXDIFF
+    _name.object_id              CIF_OXDIFF_HEAD
+
+    _import.get
+        [
+         {'dupl':Ignore  'file':cif_core.dic  'mode':Full  'save':CIF_CORE_HEAD}
+        ]
+
+save_
+
+
+save_OXDIFF
+
+    _definition.id                OXDIFF
+    _definition.scope             Category
+    _definition.class             Set
+    _definition.update            2026-11-09
+    _description.text
+;
+    The dictionary group encompassing the non-standard diffraction data items defined
+    and used by CrysAlisPro.
+;
+    _name.category_id             CIF_OXDIFF_HEAD
+
+save_
+
+
+save_oxdiff.cell_length_a
+	_definition.id                '_oxdiff.cell_length_a'
+    _alias.definition_id          '_cell_oxdiff_length_a'
+    _definition.update            2026-11-09
+    _description.text
+;
+    Parameter of the unit cell used in CrysAlisPro processing before appying symmetry constraints.
+;
+    _name.category_id             oxdiff
+    _name.object_id               cell_length_a
+    _type.purpose                 State
+    _type.source                  Assigned
+    _type.container               Single
+    _type.contents                Text
+
+
+
+_cell_oxdiff_length_a                  5.96265(13) 
+_cell_oxdiff_length_b                  9.0446(2) 
+_cell_oxdiff_length_c                  18.3590(4) 
+_cell_oxdiff_angle_alpha               89.9895(18) 
+_cell_oxdiff_angle_beta                89.9858(17) 
+_cell_oxdiff_angle_gamma               90.0037(18) 
+_cell_oxdiff_volume                    990.09(4) 
+_cell_oxdiff_measurement_reflns_used   2184
