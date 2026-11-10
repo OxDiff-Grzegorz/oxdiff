@@ -8,89 +8,556 @@
 #                                                                            #
 ##############################################################################
 
-data_CIF_ED
-
-    _dictionary.title            CIF_OXDIFF
+data_OXDIFF_DIC
+    _dictionary.title            OXDIFF_DIC
     _dictionary.class            Instance
-    _dictionary.version          1.0.1-dev
-    _dictionary.date             2026-11-09
-    _dictionary.uri
-         
-    _dictionary.ddl_conformance  4.2.0
-    _dictionary.licensing_SPDX   CC-BY-4.0
-    _dictionary.namespace        CifCore
-    _description.text
-;
-    This dictionary defines data items used by CrysAlisPro to specify the aspects of
-    experimental data processing and non-standard meta-data transfer.
-;
-
-    loop_
+    _dictionary.version          0.1.0
+    _dictionary.date             2026-11-10
+    _dictionary.uri              .
+    _dictionary.ddl_conformance  4.1.0
+    _dictionary.namespace        Oxdiff
+    _description.text            'Provisional definitions of CrysAlisPro-specific CIF data names.'
+	loop_
       _dictionary_author.id
       _dictionary_author.name
       _dictionary_author.email
          1      'Prochniak, Grzegorz'   grzegorz.prochniak@rigaku.com
-         
-
-save_CIF_OXDIFF_HEAD
-
-    _definition.id               CIF_OXDIFF_HEAD
+		 2      'ChatGPT'				.
+		 
+		 
+save_OXDIFF_HEAD
+    _definition.id               OXDIFF_HEAD
     _definition.scope            Category
     _definition.class            Head
-    _definition.update           2026-11-09
-    _description.text
-;
-     This category is the Head category for an extension dictionary used by CrysAlisPro.
-;
-    _name.category_id            CIF_OXDIFF
-    _name.object_id              CIF_OXDIFF_HEAD
-
-    _import.get
-        [
-         {'dupl':Ignore  'file':cif_core.dic  'mode':Full  'save':CIF_CORE_HEAD}
-        ]
-
+    _definition.update           2026-11-10
+    _description.text            'Parent category for the CrysAlisPro data item definitions.'
+    _name.category_id            OXDIFF_DIC
+    _name.object_id              OXDIFF_HEAD
 save_
-
 
 save_OXDIFF
-
-    _definition.id                OXDIFF
-    _definition.scope             Category
-    _definition.class             Set
-    _definition.update            2026-11-09
-    _description.text
-;
-    The dictionary group encompassing the non-standard diffraction data items defined
-    and used by CrysAlisPro.
-;
-    _name.category_id             CIF_OXDIFF_HEAD
-
+    _definition.id               OXDIFF
+    _definition.scope            Category
+    _definition.class            Set
+    _definition.update           2026-11-10
+    _description.text            'Values and metadata reported by CrysAlisPro processing software.'
+    _name.category_id            OXDIFF_HEAD
+    _name.object_id              OXDIFF
 save_
 
-
 save_oxdiff.cell_length_a
-	_definition.id                '_oxdiff.cell_length_a'
-    _alias.definition_id          '_cell_oxdiff_length_a'
-    _definition.update            2026-11-09
-    _description.text
+    _definition.id               '_oxdiff.cell_length_a'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Length of the a axis of the raw unit cell used by the CrysAlisPro processing software before applying symmetry constraints.'
+    _alias.definition_id         '_cell_oxdiff_length_a'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_length_a
+    _type.purpose                Measurand
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  angstroms
+    _description_example.case    5.96265(13)
+save_
+
+save_oxdiff.cell_length_b
+    _definition.id               '_oxdiff.cell_length_b'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Length of the b axis of the raw unit cell used by the CrysAlisPro processing software before applying symmetry constraints.'
+    _alias.definition_id         '_cell_oxdiff_length_b'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_length_b
+    _type.purpose                Derived
+    _type.source                 Recorded
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  angstroms
+    _description_example.case    9.0446(2)
+save_
+
+save_oxdiff.cell_length_c
+    _definition.id               '_oxdiff.cell_length_c'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Length of the c axis of the raw unit cell used by the CrysAlisPro processing software before applying symmetry constraints.'
+    _alias.definition_id         '_cell_oxdiff_length_c'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_length_c
+    _type.purpose                Measurand
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  angstroms
+    _description_example.case    18.3590(4)
+save_
+
+save_oxdiff.cell_angle_alpha
+    _definition.id               '_oxdiff.cell_angle_alpha'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Angle between the b and c axes of the raw unit cell used by the CrysAlisPro processing software before applying symmetry constraints.'
+    _alias.definition_id         '_cell_oxdiff_angle_alpha'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_angle_alpha
+    _type.purpose                Measurand
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           '0.:180.'
+    _units.code                  degrees
+    _description_example.case    89.9895(18)
+save_
+
+save_oxdiff.cell_angle_beta
+    _definition.id               '_oxdiff.cell_angle_beta'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Angle between the a and c axes of the raw unit cell used by the CrysAlisPro processing software before applying symmetry constraints.'
+    _alias.definition_id         '_cell_oxdiff_angle_beta'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_angle_beta
+    _type.purpose                Measurand
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           '0.:180.'
+    _units.code                  degrees
+    _description_example.case    89.9858(17)
+save_
+
+save_oxdiff.cell_angle_gamma
+    _definition.id               '_oxdiff.cell_angle_gamma'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Angle between the a and b axes of the raw unit cell used by the CrysAlisPro processing software before applying symmetry constraints.'
+    _alias.definition_id         '_cell_oxdiff_angle_gamma'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_angle_gamma
+    _type.purpose                Measurand
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           '0.:180.'
+    _units.code                  degrees
+    _description_example.case    90.0037(18)
+save_
+
+save_oxdiff.cell_volume
+    _definition.id               '_oxdiff.cell_volume'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Volume of the raw unit cell used by the CrysAlisPro processing software.'
+    _alias.definition_id         '_cell_oxdiff_volume'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_volume
+    _type.purpose                Measurand
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  'angstrom cubed'
+    _description_example.case    990.09(4)
+save_
+
+save_oxdiff.cell_measurement_reflns_used
+    _definition.id               '_oxdiff.cell_measurement_reflns_used'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Number of reflections used to determine the raw unit-cell parameters used by the CrysAlisPro processing software.'
+    _alias.definition_id         '_cell_oxdiff_measurement_reflns_used'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_measurement_reflns_used
+    _type.purpose                Encode
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Integer
+    _enumeration.range           0:
+    _units.code                  none
+    _description_example.case    2184
+save_
+
+save_oxdiff.exptl_absorpt_empirical_full_min
+    _definition.id               '_oxdiff.exptl_absorpt_empirical_full_min'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Minimum of the empirical correction factors described by exptl_absorpt_empirical_details. Factors provided as used in CrysAlisPro without renormalization to a ragne <0.0; 1.0>.'
+    _alias.definition_id         '_oxdiff_exptl_absorpt_empirical_full_min'
+    _name.category_id            OXDIFF
+    _name.object_id              exptl_absorpt_empirical_full_min
+    _type.purpose                Encode
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  none
+    _description_example.case    0.976
+save_
+
+save_oxdiff.exptl_absorpt_empirical_full_max
+    _definition.id               '_oxdiff.exptl_absorpt_empirical_full_max'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Maximum of the empirical correction factors described by exptl_absorpt_empirical_details. Factors provided as used in CrysAlisPro without renormalization to a ragne <0.0; 1.0>.'
+    _alias.definition_id         '_oxdiff_exptl_absorpt_empirical_full_max'
+    _name.category_id            OXDIFF
+    _name.object_id              exptl_absorpt_empirical_full_max
+    _type.purpose                Encode
+    _type.source                 Derived
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  none
+    _description_example.case    1.040
+save_
+
+save_oxdiff.exptl_absorpt_empirical_details
+    _definition.id               '_oxdiff.exptl_absorpt_empirical_details'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Text describing the empirical correction reported by the CrysAlisPro processing software, including any absorption correction and frame scaling.'
+    _alias.definition_id         '_oxdiff_exptl_absorpt_empirical_details'
+    _name.category_id            OXDIFF
+    _name.object_id              exptl_absorpt_empirical_details
+    _type.purpose                Describe
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+    _description_example.case   
 ;
-    Parameter of the unit cell used in CrysAlisPro processing before appying symmetry constraints.
+Empirical correction (ABSPACK) includes:
+- Absorption correction using spherical harmonics
+- Frame scaling
 ;
-    _name.category_id             oxdiff
-    _name.object_id               cell_length_a
-    _type.purpose                 State
-    _type.source                  Assigned
-    _type.container               Single
-    _type.contents                Text
+save_
 
+save_oxdiff.diffrn_data_source
+    _definition.id               '_oxdiff.diffrn_data_source'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Source of diffraction data as identified by the CrysAlisPro processing software.'
+    _alias.definition_id         '_diffrn_oxdiff_data_source'
+    _name.category_id            OXDIFF
+    _name.object_id              diffrn_data_source
+    _type.purpose                Describe
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+    _description_example.case    Simulator
+save_
 
+save_oxdiff.diffrn_measurement_exp_name
+    _definition.id               '_oxdiff.diffrn_measurement_exp_name'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Name of the diffraction measurement experiment as recorded by the CrysAlisPro processing software.'
+    _alias.definition_id         '_diffrn_oxdiff_measurement_exp_name'
+    _name.category_id            OXDIFF
+    _name.object_id              diffrn_measurement_exp_name
+    _type.purpose                State
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+    _description_example.case    exp_1936test.par
+save_
 
-_cell_oxdiff_length_a                  5.96265(13) 
-_cell_oxdiff_length_b                  9.0446(2) 
-_cell_oxdiff_length_c                  18.3590(4) 
-_cell_oxdiff_angle_alpha               89.9895(18) 
-_cell_oxdiff_angle_beta                89.9858(17) 
-_cell_oxdiff_angle_gamma               90.0037(18) 
-_cell_oxdiff_volume                    990.09(4) 
-_cell_oxdiff_measurement_reflns_used   2184
+save_oxdiff.diffrn_digest_frames
+    _definition.id               '_oxdiff.diffrn_digest_frames'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'A hash key based on experiment files - enables the CrysAlisPro offline processing to sign the output files with AutoChem license.'
+    _alias.definition_id         '_diffrn_oxdiff_digest_frames'
+    _name.category_id            OXDIFF
+    _name.object_id              diffrn_digest_frames
+    _type.purpose                State
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+save_
+
+save_oxdiff.diffrn_digest_hkl
+    _definition.id               '_oxdiff.diffrn_digest_hkl'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'A hash key based on the CrysAlisPro output files - enables AutoChem license for this collection of output files.'
+    _alias.definition_id         '_diffrn_oxdiff_digest_hkl'
+    _name.category_id            OXDIFF
+    _name.object_id              diffrn_digest_frames
+    _type.purpose                State
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+save_
+
+save_oxdiff.diffrn_digest_od_ed
+    _definition.id               '_oxdiff.diffrn_digest_od_ed'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            
+	;
+	A hash key based on the CrysAlisPro output files for electron diffraction dynamic refinement - enables AutoChem with N-Beam refinement for this collection of output files.
+	;
+    _alias.definition_id         '_diffrn_oxdiff_digest_od_ed'
+    _name.category_id            OXDIFF
+    _name.object_id              diffrn_digest_frames
+    _type.purpose                State
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+save_
+
+save_oxdiff.diffrn_digest_creation
+    _definition.id               '_oxdiff.diffrn_digest_creation'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'CrysAlisPro and Olex2-AutoChem versions used to sign this dataset with licenses.'
+    _alias.definition_id         '_diffrn_oxdiff_digest_creation'
+    _name.category_id            OXDIFF
+    _name.object_id              diffrn_digest_frames
+    _type.purpose                Describe
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+save_
+
+save_oxdiff.diffrn_ac6_digest_hkl_ed
+    _definition.id               '_oxdiff.diffrn_ac6_digest_hkl_ed'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            
+	;
+	ITEM OBSOLETE, no longer used. Still interpreted for backwards compatibility.
+	A hash key based on the CrysAlisPro output files for electron diffraction dynamic refinement - enables AutoChem with N-Beam refinement for this collection of output files.
+	;
+    _alias.definition_id         '_diffrn_oxdiff_ac6_digest_hkl_ed'
+    _name.category_id            OXDIFF
+    _name.object_id              diffrn_digest_frames
+    _type.purpose                State
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+save_
+
+save_oxdiff.diffrn_digest_hkl_ed
+    _definition.id               '_oxdiff.diffrn_digest_hkl_ed'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            
+	;
+	ITEM OBSOLETE, no longer used. Still interpreted for backwards compatibility.
+	A hash key based on the CrysAlisPro output files for electron diffraction dynamic refinement - enables AutoChem with N-Beam refinement for this collection of output files.
+	;
+    _alias.definition_id         '_diffrn_oxdiff_digest_hkl_ed'
+    _name.category_id            OXDIFF
+    _name.object_id              diffrn_digest_frames
+    _type.purpose                State
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+save_
+
+save_oxdiff.diffrn_digest_dyn_ed
+    _definition.id               '_oxdiff.diffrn_digest_dyn_ed'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            
+	;
+	ITEM OBSOLETE, no longer used. Still interpreted for backwards compatibility.
+	A hash key based on the CrysAlisPro output files for electron diffraction dynamic refinement - enables AutoChem with N-Beam refinement for this collection of output files.
+	;
+    _alias.definition_id         '_diffrn_oxdiff_digest_dyn_ed'
+    _name.category_id            OXDIFF
+    _name.object_id              diffrn_digest_frames
+    _type.purpose                State
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+save_
+
+save_oxdiff.chemical_usercomment
+    _definition.id               '_oxdiff.chemical_usercomment'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'User-supplied comment concerning chemical or sample identification recorded by the CrysAlisPro processing software.'
+    _alias.definition_id         '_chemical_oxdiff_usercomment'
+    _name.category_id            OXDIFF
+    _name.object_id              chemical_usercomment
+    _type.purpose                Describe
+    _type.source                 Assigned
+    _type.container              Single
+    _type.contents               Text
+    _enumeration.range           .
+    _units.code                  .
+    _description_example.case    'CSD: MSULIN05'
+save_
+
+save_oxdiff.cell_length_a_su
+    _definition.id               '_oxdiff.cell_length_a_su'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Standard uncertainty of _oxdiff.cell_length_a in the same units.'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_length_a_su
+    _name.linked_item_id         '_oxdiff.cell_length_a'
+    _type.purpose                SU
+    _type.source                 Related
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  angstroms
+    _description_example.case    0.00013
+save_
+
+save_oxdiff.cell_length_b_su
+    _definition.id               '_oxdiff.cell_length_b_su'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Standard uncertainty of _oxdiff.cell_length_b in the same units.'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_length_b_su
+    _name.linked_item_id         '_oxdiff.cell_length_b'
+    _type.purpose                SU
+    _type.source                 Related
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  angstroms
+    _description_example.case    0.0002
+save_
+
+save_oxdiff.cell_length_c_su
+    _definition.id               '_oxdiff.cell_length_c_su'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Standard uncertainty of _oxdiff.cell_length_c in the same units.'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_length_c_su
+    _name.linked_item_id         '_oxdiff.cell_length_c'
+    _type.purpose                SU
+    _type.source                 Related
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  angstroms
+    _description_example.case    0.0004
+save_
+
+save_oxdiff.cell_angle_alpha_su
+    _definition.id               '_oxdiff.cell_angle_alpha_su'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Standard uncertainty of _oxdiff.cell_angle_alpha in the same units.'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_angle_alpha_su
+    _name.linked_item_id         '_oxdiff.cell_angle_alpha'
+    _type.purpose                SU
+    _type.source                 Related
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  degrees
+    _description_example.case    0.0018
+save_
+
+save_oxdiff.cell_angle_beta_su
+    _definition.id               '_oxdiff.cell_angle_beta_su'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Standard uncertainty of _oxdiff.cell_angle_beta in the same units.'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_angle_beta_su
+    _name.linked_item_id         '_oxdiff.cell_angle_beta'
+    _type.purpose                SU
+    _type.source                 Related
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  degrees
+    _description_example.case    0.0017
+save_
+
+save_oxdiff.cell_angle_gamma_su
+    _definition.id               '_oxdiff.cell_angle_gamma_su'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Standard uncertainty of _oxdiff.cell_angle_gamma in the same units.'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_angle_gamma_su
+    _name.linked_item_id         '_oxdiff.cell_angle_gamma'
+    _type.purpose                SU
+    _type.source                 Related
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  degrees
+    _description_example.case    0.0018
+save_
+
+save_oxdiff.cell_volume_su
+    _definition.id               '_oxdiff.cell_volume_su'
+    _definition.scope            Item
+    _definition.class            Datum
+    _definition.update           2026-11-10
+    _description.text            'Standard uncertainty of _oxdiff.cell_volume in the same units.'
+    _name.category_id            OXDIFF
+    _name.object_id              cell_volume_su
+    _name.linked_item_id         '_oxdiff.cell_volume'
+    _type.purpose                SU
+    _type.source                 Related
+    _type.container              Single
+    _type.contents               Real
+    _enumeration.range           0.:
+    _units.code                  'angstrom cubed'
+    _description_example.case    0.04
+save_
